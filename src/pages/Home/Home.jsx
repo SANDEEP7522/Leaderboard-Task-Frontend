@@ -1,10 +1,10 @@
-import { UserButton } from '@/components/atoms/UserButton/UserButton';
+import Navbar from "@/components/atoms/Navbar";
 
 export const Home = () => {
-    return (
-        <>
-            <h1>Home</h1>
-            <UserButton />
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      <h1>Home</h1>
+    </>
+  );
 };
