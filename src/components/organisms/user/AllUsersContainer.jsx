@@ -1,14 +1,23 @@
 import { useAllUsers } from "@/hooks/apis/user/useAllUsers";
 import { useAuth } from "@/hooks/context/useAuth";
+import { ClaimPointsButton } from "./ClaimPointsButton";
+import { Loader } from "lucide-react";
 
 export const AllUsersContainer = () => {
   const { auth } = useAuth();
   const { data, isLoading, isError, error } = useAllUsers(auth?.token);
 
-  if (isLoading) return <p className="text-center p-6">Loading users...</p>;
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center p-6">
+        <Loader className="animate-spin ml-2" />
+      </div>
+    );
   if (isError)
     return (
-      <p className="text-center p-6 text-red-500">Error: {error.message}</p>
+      <div className="flex items-center justify-center p-6 text-red-500">
+        Error: {error.message}
+      </div>
     );
 
   return (
@@ -21,7 +30,9 @@ export const AllUsersContainer = () => {
             key={user._id}
             className="bg-white border rounded-2xl shadow-md p-4 hover:shadow-lg transition duration-300"
           >
-            <p className="font-semibold text-lg text-gray-800">{user.name}</p>
+            <p className="font-semibold text-lg text-gray-800">
+              User Name: <span className="font-medium">{user.name}</span>
+            </p>
             <p className="text-sm text-gray-500">
               Points: <span className="font-medium">{user.totalPoints}</span>
             </p>
@@ -31,9 +42,11 @@ export const AllUsersContainer = () => {
             <p className="text-sm text-gray-500">
               Updated: {new Date(user.updatedAt).toLocaleDateString()}
             </p>
+            <ClaimPointsButton userId={user._id} />
           </div>
         ))}
       </div>
     </div>
   );
 };
+

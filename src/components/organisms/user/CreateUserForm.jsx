@@ -11,19 +11,19 @@ export const CreateUserForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center ">
       <form onSubmit={handleSubmit} className="space-x-2">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter name"
-          className="border px-3 py-2 rounded"
+          className="original-box-shadow"
         />
         <button
           type="submit"
           disabled={isPending}
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="original-box-shadows"
         >
           {isPending ? "Creating..." : "Create User"}
         </button>
