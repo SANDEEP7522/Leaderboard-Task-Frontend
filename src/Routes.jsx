@@ -4,7 +4,7 @@ import { ProtectedRoute } from '@/components/molecules/ProtectedRoute/ProtectedR
 import { SigninContainer } from '@/components/organisms/Auth/SigninContainer';
 import { SignupContainer } from '@/components/organisms/Auth/SignupContainer';
 import { Auth } from '@/pages/Auth/Auth';
-import { Home } from '@/pages/Home/Home';
+import { Home } from './pages/Home/Home';
 import { Notfound } from '@/pages/Notfound/Notfound';
 
 export const AppRoutes = () => {

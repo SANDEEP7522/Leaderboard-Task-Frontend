@@ -36,7 +36,7 @@ export const SigninContainer = () => {
     useEffect(() => {
         if(isSuccess) {
             setTimeout(() => {
-                navigate('/home');
+                navigate('/');
             }, 3000);
         }
             
